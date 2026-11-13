@@ -28,6 +28,7 @@ The panel has five boxes:
 
 ## Requirements
 
+- Windows. The `/paste` button reads the clipboard through Windows PowerShell.
 - Claude Code version 2.1.325 or later.
 
 ## Installation
