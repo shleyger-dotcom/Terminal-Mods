@@ -1,0 +1,11 @@
+{
+  "name": "terminal-mods",
+  "owner": { "name": "shleyger-dotcom" },
+  "plugins": [
+    {
+      "name": "model-effort",
+      "source": "./plugins/model-effort",
+      "description": "Framed model and effort pickers above the prompt; a press runs /model or /effort"
+    }
+  ]
+}
