@@ -1,6 +1,6 @@
 {
   "name": "model-effort",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Framed model and effort pickers above the prompt; a press runs /model or /effort",
   "author": { "name": "shleyger-dotcom" },
   "types": "./types/index.d.ts"
