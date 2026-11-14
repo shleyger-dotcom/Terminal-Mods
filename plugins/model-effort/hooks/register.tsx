@@ -49,7 +49,8 @@ export const register: Register = on => {
         <Text dimColor>{`${label} --%`}</Text>
       ) : (
         <Box>
-          <Text color={levelColor(p, warn, danger)}>{`${label} ${Math.round(p)}%`}</Text>
+          <Text color={levelColor(p, warn, danger)}>{label}</Text>
+          <Text color="blue">{` ${Math.round(p)}%`}</Text>
           <Text color="blue">{extra}</Text>
         </Box>
       )
