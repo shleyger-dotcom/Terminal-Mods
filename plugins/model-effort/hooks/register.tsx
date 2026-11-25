@@ -14,7 +14,7 @@ const MODELS = [
 
 const EFFORTS = ['low', 'medium', 'high', 'xhigh', 'max'] as const
 
-const COMMANDS = ['paste', 'btw', 'rewind', 'clear'] as const
+const COMMANDS = ['init', 'btw', 'rewind', 'clear'] as const
 type CommandName = (typeof COMMANDS)[number]
 
 const DAYS = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
@@ -70,24 +70,9 @@ export const register: Register = on => {
         throw err
       })
 
-    // shortcut: clipboard is read through Windows PowerShell; upgrade when the API can read a clipboard
-    const paste = async () => {
-      try {
-        const r = await $.process.run(
-          ['powershell', '-NoProfile', '-Command', '[Console]::OutputEncoding=[Text.Encoding]::UTF8; Get-Clipboard -Raw'],
-          { timeoutMs: 5000 },
-        )
-        const text = r.stdout.replace(/\r?\n$/, '')
-        if (r.exitCode !== 0 || text === '') return void $.ui.toast('paste: clipboard is empty or holds no text')
-        await $.prompt.fill({ text, mode: 'insert' })
-      } catch (err: unknown) {
-        $.ui.toast(`paste failed: ${String((err as Error)?.message ?? err).slice(0, 80)}`)
-      }
-    }
-
     // /btw needs a question after its name, so the button only seeds the prompt
     const press: Record<CommandName, () => void> = {
-      paste: () => void paste(),
+      init: () => void run('init', '').catch(() => {}),
       btw: () => void $.prompt.fill({ text: '/btw ', mode: 'insert' }),
       rewind: () => void run('rewind', '').catch(() => {}),
       clear: () => void run('clear', '').catch(() => {}),

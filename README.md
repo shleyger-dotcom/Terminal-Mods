@@ -20,7 +20,7 @@ The panel has five boxes:
   The number changes color from green to yellow and red when a limit is near. If no data is available, the box shows `--%`.
 - **effort** — the model effort level: `low`, `medium`, `high`, `xhigh`, `max`. Click a level, and the mod runs `/effort`. The selected level is highlighted in cyan.
 - **commands** — quick commands:
-  - `/paste` — inserts the clipboard text into the input line;
+  - `/init` — runs `/init`;
   - `/btw` — inserts `/btw ` into the input line, and you type the question after it;
   - `/rewind` — runs `/rewind`;
   - `/clear` — runs `/clear`.
@@ -28,7 +28,6 @@ The panel has five boxes:
 
 ## Requirements
 
-- Windows. The `/paste` button reads the clipboard through Windows PowerShell.
 - Claude Code version 2.1.325 or later.
 
 ## Installation
